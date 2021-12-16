@@ -56,7 +56,7 @@
 			(t (list(data p)
 					(join 	(left p)
 							(prevTree (data p) q))
-					(join	(rigth p)
+					(join	(right p)
 							(nextTree (data p) q)) 
 ))))
 
