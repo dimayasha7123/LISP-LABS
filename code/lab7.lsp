@@ -6,7 +6,7 @@
 		(6 nil nil) nil)))
 
 ;пустое дерево
-(nil nil nil)
+;(nil nil nil)
 
 (defun data (tree) (
 	cond	((or (null tree) (atom tree)) nil)
@@ -31,8 +31,7 @@
 ))
 
 (defun add (x tree) (
-	cond 	((null x) '(nil nil nil))
-			((or (null tree) (null (data tree))) (list x nil nil))
+	cond 	((or (null tree) (null (data tree))) (list x nil nil))
 			((= x (data tree)) tree)
 			((< x (data tree)) (list (data tree) (add x (left tree)) (right tree)))
 			((> x (data tree)) (list (data tree) (left tree) (add x (right tree))))
@@ -70,13 +69,30 @@
 			((= x (data tree)) (
 				cond	((null (left tree)) (right tree))
 						((null (right tree)) (left tree))
-						(t list	(takeRight (left tree))
-								(del (takeRight (left tree)) tree)
-								(right tree))))
+						(t (list	(takeRight (left tree))
+								(del (takeRight (left tree)) (left tree))
+								(right tree)))))
 			((< x (data tree)) (list (data tree) (del x (left tree)) (right tree)))
 			((> x (data tree)) (list (data tree) (left tree) (del x (right tree))))
 
 ))
+
+
+(cond 
+	((условие) (что делать))
+	(() ())
+	(t ())
+)
+	
+
+
+
+
+
+
+
+
+
 
 
 
